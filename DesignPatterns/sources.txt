@@ -1,0 +1,4 @@
+https://github.com/design-patterns-for-humans/design-patterns-for-humans-cs
+Erich Gamma: Programtervezési minták (Kiskapu Kft., 2004)
+https://www.tutorialspoint.com/design_pattern/
+https://www.dofactory.com/net/design-patterns

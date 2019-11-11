@@ -1,0 +1,46 @@
+﻿@model WebApp.Controllers.ServiceLifetimeSamples
+@{
+    ViewData["Title"] = "Service lifetimes";
+}
+
+<h1>Service lifetimes</h1>
+
+<h2>From service</h2>
+<table class="table table-striped">
+    <tr>
+        <td>Transient</td>
+        <td>@Model.FromService.Transient</td>
+    </tr>
+    <tr>
+        <td>Scoped</td>
+        <td>@Model.FromService.Scoped</td>
+    </tr>
+    <tr>
+        <td>Singleton</td>
+        <td>@Model.FromService.Singleton</td>
+    </tr>
+    <tr>
+        <td>Singleton instance</td>
+        <td>@Model.FromService.SingletonInstance</td>
+    </tr>
+</table>
+
+<h2>From controller</h2>
+<table class="table table-striped">
+    <tr>
+        <td>Transient</td>
+        <td>@Model.FromController.Transient</td>
+    </tr>
+    <tr>
+        <td>Scoped</td>
+        <td>@Model.FromController.Scoped</td>
+    </tr>
+    <tr>
+        <td>Singleton</td>
+        <td>@Model.FromController.Singleton</td>
+    </tr>
+    <tr>
+        <td>Singleton instance</td>
+        <td>@Model.FromController.SingletonInstance</td>
+    </tr>
+</table>

@@ -1,0 +1,47 @@
+===========================
+DESIGN PATTERNS
+===========================
+
+* Design patterns are solutions to recurring problems; _guidelines_(!) on how to tackle certain problems.
+* Be careful!
+    * Design patterns are not a silver bullet to all your problems.
+    * Do not try to force them; bad things are supposed to happen, if done so. 
+    * Keep in mind that design patterns are solutions to problems, not solutions finding problems; so don't overthink. (!)
+    * If used in a correct place in a correct manner, they can prove to be a savior; or else they can result in a horrible mess of a code.
+
+===========================
+
+Creational
+---------------------------
+Simple Factory
+Factory Method
+Abstract Factory
+Builder
+Prototype
+Singleton
+
+
+Structural
+---------------------------
+Adapter
+Bridge
+Composite
+Decorator
+Facade
+Flyweight
+Proxy
+	
+
+Behavioral
+---------------------------
+Chain of Responsibility
+Command
+Interpreter
+Iterator
+Mediator
+Memento
+Observer
+Visitor
+Strategy
+State
+Template Method
