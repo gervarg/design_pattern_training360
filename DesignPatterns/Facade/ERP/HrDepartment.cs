@@ -4,6 +4,12 @@
     {
         private readonly Colleague Valika = new Colleague("Valika");
 
+        public void ExitColleague(Colleague colleague)
+        {
+            Valika.AddToDo($"Make exit interview with {colleague.Name}.");
+            Valika.AddToDo($"Create exit papers for {colleague.Name}.");
+        }
+
         public void KickOff(Colleague colleague)
         {
             Valika.AddToDo($"Create new access card for {colleague.Name}.");

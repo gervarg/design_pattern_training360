@@ -22,5 +22,13 @@ namespace Facade
             accountingDepartment.IntroduceNewColleague(colleague);
             hrDepartment.KickOff(colleague);
         }
+
+        internal void Fire(Colleague colleague)
+        {
+            Console.WriteLine($"Fire {colleague.Name}");
+            accountingDepartment.RemoveSalary(colleague);
+            hrDepartment.ExitColleague(colleague);      
+            
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace Facade
             // 2. Vállalatirányítási rendszer, ERP
             var companyFacade = new CompanyFacade(new PurchasingDepartment(), new AccountingDepartment(), new HrDepartment());
             companyFacade.Enter(new Colleague("Pista"));
+            var colleague = new Colleague("Imre");
+            companyFacade.Fire(colleague);
             // Accessing subsystem elements?!
         }
     }
