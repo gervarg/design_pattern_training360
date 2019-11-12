@@ -79,7 +79,7 @@ namespace Proxy
             }
             else
             {
-                return new Task.FromResult(new Response ({ StatusCode: 503, Content = "Service Unavailable" }));
+                return new Task.FromResult(new Response({ StatusCode: 503, Content = "Service Unavailable" }));
             }
         }
     }

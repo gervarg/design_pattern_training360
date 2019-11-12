@@ -14,10 +14,12 @@ namespace ChainOfResponsibility
         {
             //AccountExample();
 
-            JobDistributionExample();
+            //JobDistributionExample();
 
             // see: asp.net core middlewares
             // exceptions and their order
+
+            HouseAuctionExample();
         }
 
         private static void JobDistributionExample()
@@ -54,6 +56,16 @@ namespace ChainOfResponsibility
 
             // Let's try to pay using the first priority i.e. bank
             bank.Pay(259);
+        }
+
+        private static void HouseAuctionExample()
+        {
+            var houseBroker = new HouseBroker();
+            houseBroker.Customers.Add(new Customer("Ernő", 100_000));
+            houseBroker.Customers.Add(new Customer("Dani", 800_000));
+            houseBroker.Customers.Add(new Customer("Ági", 10050_000));
+
+            houseBroker.SellHouse(1_000_000);                                
         }
     }
 }
