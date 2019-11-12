@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flyweight.Music;
+using System;
 using System.Collections.Generic;
 
 namespace Flyweight
@@ -15,10 +16,12 @@ namespace Flyweight
             //LoadImages();            
 
             // 2. Kémiai alkalmazás: atomok, molekulák a "pehelysúlyú készlet"-ből
-            ChemistryExample();
+            //ChemistryExample();
 
             // !) Konstans állapotú objektumok
             // ConnectionPool, ThreadPool, DbContextPool
+
+            MusicExample();
 
             Console.WriteLine();
         }
@@ -55,6 +58,25 @@ namespace Flyweight
             }
 
             // https://education.jlab.org/qa/atom_02.html
+        }
+
+        private static void MusicExample()
+        {
+            var musicSounds = new[] { "do", "re", "mi", "fa", "so", "la", "ti", "Do" };
+            var soundElements = new List<Sound>();
+            var soundFactory = new SoundFactory();
+
+            for (int i = 0; i < 100; i++)
+            {
+                string soundSymbol = musicSounds[i % musicSounds.Length];
+                Sound soundElement = soundFactory.GetSound(soundSymbol);
+                soundElements.Add(soundElement);
+            }
+
+            foreach (var item in soundElements)
+            {
+                item.MakeSound();
+            }
         }
     }
 }
