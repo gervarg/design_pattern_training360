@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Composit.Desktop;
+using System;
 
 namespace Composit
 {
@@ -10,6 +11,13 @@ namespace Composit
         static void Main(string[] args)
         {
             // 1. TODO: Computer and its parts
+
+            IComputer computer = new Computer("Otthoni PC");
+            // TODO : finish example
+            IPart motherboard = 
+            IPart memory
+            IPart keyboard
+            IPart mouse
 
             #region 2. Részvények és részvénycsomagok
 
