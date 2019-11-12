@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Proxy
@@ -26,8 +27,8 @@ namespace Proxy
 
 
             // 2. Browser example
-            IBrowser browser = new Browser();
-            //IBrowser browser = new BrowserProxy();
+            //IBrowser browser = new Browser();
+            IBrowser browser = new BrowserProxy();
 
             Console.WriteLine("Download data from facebook");
             Response response1 = await browser.Request("https://www.facebook.com");
@@ -38,6 +39,14 @@ namespace Proxy
             Console.WriteLine(response2);
 
             // 3. Throttling
+            string url = "https://www.google.com";
+            IBrowser browser1 = new ThrottlingProxy();
+            for (int i = 0; i < 100; i++)
+            {
+                Response response3 = browser1.Request(url);
+                Console.WriteLine(response3);
+                Thread.Sleep(100);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Proxy
@@ -47,6 +49,37 @@ namespace Proxy
             else
             {
                 return await browser.Request(url);
+            }
+        }
+    }
+
+    class ThrottlingProxy : IBrowser
+    {
+        private readonly IBrowser browser = new BrowserProxy();
+
+        private int counter = 0;
+
+        private readonly Timer timer;
+
+        public ThrottlingProxy()
+        {
+            timer = new Timer(ResetCounter, state: null, dueTime: 1_000, period: 1_000);
+        }
+
+        private void ResetCounter(object state)
+        {
+            counter = 0;
+        }
+
+        public Task<Response> Request(string url)
+        {
+            if (counter <= 5)
+            {
+                return browser.Request(url);
+            }
+            else
+            {
+                return new Task.FromResult(new Response ({ StatusCode: 503, Content = "Service Unavailable" }));
             }
         }
     }
