@@ -83,5 +83,10 @@ namespace Decorator
             decimal exchangeRate = currencyService.GetExchangeRate("USD");
             Console.WriteLine($"Exchange rate for USD: {exchangeRate}");
         }
+
+        private static void LoggingExample()
+        {
+
+        }
     }
 }
