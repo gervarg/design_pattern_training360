@@ -17,6 +17,7 @@ namespace ChainOfResponsibility
                 if (customer.CanBuy(housePrice))
                 {
                     Console.WriteLine($"{customer.Name} bought the house.");
+
                     return;
                 }
             }

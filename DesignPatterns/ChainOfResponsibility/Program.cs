@@ -61,9 +61,9 @@ namespace ChainOfResponsibility
         private static void HouseAuctionExample()
         {
             var houseBroker = new HouseBroker();
-            houseBroker.Customers.Add(new Customer("Ernő", 100_000));
-            houseBroker.Customers.Add(new Customer("Dani", 800_000));
-            houseBroker.Customers.Add(new Customer("Ági", 10050_000));
+            houseBroker.Customers.Add(new Customer("Ernő",new BankAccount(100_000)));
+            houseBroker.Customers.Add(new Customer("Dani", new BankAccount(800_000)));
+            houseBroker.Customers.Add(new Customer("Ági", new BankAccount (10050_000)));
 
             houseBroker.SellHouse(1_000_000);                                
         }

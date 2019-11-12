@@ -6,18 +6,28 @@ namespace ChainOfResponsibility
     {
         public string Name { get; }
         
-        public long Balance { get; }
+        private BankAccount BankAccount { get; }
        
 
-        public Customer(string name, long balance)
+        public Customer(string name, BankAccount bankAccount)
         {
             Name = name;
-            Balance = balance;            
+            BankAccount = bankAccount;            
         }
 
         internal bool CanBuy(long housePrice)
         {
-            return housePrice <= Balance;
+            return housePrice <= BankAccount.Balance;
+        }
+    }
+
+    public class BankAccount
+    {
+        public long Balance { get; set; }
+
+        public BankAccount(long balance)
+        {
+            Balance = balance;
         }
     }
 }
