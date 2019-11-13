@@ -22,6 +22,29 @@ namespace Mediator
             //UiExample();
             //MvvmExample();
             WesternUnionExample();
+            WesternExample();
+        }
+
+        private static void WesternExample()
+        {
+            Western westernUnion = new Western();
+            ClientAccount client1 = new ClientAccount("Pista") { Cash = 200_000 };
+            ClientAccount client2 = new ClientAccount("Erzsi") { Cash = 0 };
+
+            Console.WriteLine(westernUnion);
+            Console.WriteLine(client1);
+            Console.WriteLine(client2);
+            client1.Deposit(westernUnion, 150_000);
+
+            Console.WriteLine(westernUnion);
+            Console.WriteLine(client1);
+            Console.WriteLine(client2);
+            client1.Transfer(westernUnion, 100_000, client2);
+
+            Console.WriteLine(westernUnion);
+            Console.WriteLine(client1);
+            Console.WriteLine(client2);
+            client2.Withraw(westernUnion, 80_000);
         }
 
         private static void WesternUnionExample()

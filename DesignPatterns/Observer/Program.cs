@@ -17,7 +17,7 @@ namespace Observer
 
             //ButtonExample();
 
-            EventExample();
+            //EventExample();
         }
 
         private static void EventExample()

@@ -21,7 +21,7 @@ namespace State
 
             //DbConnection();
 
-            //MarioExample();
+            MarioExample();
         }
 
         private static void TextEditorExample()
