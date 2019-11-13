@@ -20,6 +20,7 @@ namespace ChainOfResponsibility
         }
         public void Execute()
         {
+
             Console.WriteLine("Sell initiated");
         }
     }

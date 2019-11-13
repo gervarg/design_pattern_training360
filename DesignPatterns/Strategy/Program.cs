@@ -15,6 +15,16 @@ namespace Strategy
 
             // https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.iequalitycomparer-1?view=netcore-3.0
             // new Dictionary<string, string>()
+
+            GameDifficultyExample();
+        }
+
+        private static void GameDifficultyExample()
+        {
+            var moderateGameDifficulty = new Game(new ModerateGameDifficulty());
+            moderateGameDifficulty.SetGameDifficulty();
+            var game = new Game();
+            game.SetGameDifficulty();
         }
 
         private static void TreeExample()
