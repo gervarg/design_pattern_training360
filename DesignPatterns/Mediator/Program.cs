@@ -21,6 +21,17 @@ namespace Mediator
             //HubExample();
             //UiExample();
             //MvvmExample();
+            WesternUnionExample();
+        }
+
+        private static void WesternUnionExample()
+        {
+            ITransferMediator mediator = new WesternUnionExample();
+            var client1 = new BankClient("Gergő", 100_000_0, mediator);
+            var client2 = new BankClient("Ági", 200_000, mediator);
+            Console.WriteLine(client2.Balance);
+            client1.SendMoney(100_000, client2);
+            Console.WriteLine(client2.Balance);
         }
 
         private static void MvvmExample()

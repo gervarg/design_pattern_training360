@@ -29,12 +29,12 @@
 
         public override void Accept(IEmployeeOperation employeeOperation)
         {
-            employeeOperation.VisitSalesRepresentative(this);
+            employeeOperation.Visit(this);
         }
 
         public override T Accept<T>(IEmployeeOperation<T> employeeOperation)
         {
-            return employeeOperation.VisitSalesRepresentative(this);
+            return employeeOperation.Visit(this);
         }
     }
 
@@ -46,12 +46,12 @@
 
         public override void Accept(IEmployeeOperation employeeOperation)
         {
-            employeeOperation.VisitHrGeneralist(this);
+            employeeOperation.Visit(this);
         }
 
         public override T Accept<T>(IEmployeeOperation<T> employeeOperation)
         {
-            return employeeOperation.VisitHrGeneralist(this);
+            return employeeOperation.Visit(this);
         }
     }
 
@@ -63,12 +63,12 @@
 
         public override void Accept(IEmployeeOperation employeeOperation)
         {
-            employeeOperation.VisitManager(this);
+            employeeOperation.Visit(this);
         }
 
         public override T Accept<T>(IEmployeeOperation<T> employeeOperation)
         {
-            return employeeOperation.VisitManager(this);
+            return employeeOperation.Visit(this);
         }
     }
 
@@ -80,50 +80,50 @@
 
         public override void Accept(IEmployeeOperation employeeOperation)
         {
-            employeeOperation.VisitDeveloper(this);
+            employeeOperation.Visit(this);
         }
 
         public override T Accept<T>(IEmployeeOperation<T> employeeOperation)
         {
-            return employeeOperation.VisitDeveloper(this);
+            return employeeOperation.visit(this);
         }
     }
 
     // Visitor with no return type
     internal interface IEmployeeOperation
     {
-        void VisitSalesRepresentative(SalesRepresentative salesRepresentative);
-        void VisitHrGeneralist(HrGeneralist hrGeneralist);
-        void VisitManager(Manager manager);
-        void VisitDeveloper(Developer developer);
+        void Visit(SalesRepresentative salesRepresentative);
+        void Visit(HrGeneralist hrGeneralist);
+        void Visit(Manager manager);
+        void Visit(Developer developer);
     }
 
     internal interface IEmployeeOperation<T>
     {
-        T VisitSalesRepresentative(SalesRepresentative salesRepresentative);
-        T VisitHrGeneralist(HrGeneralist hrGeneralist);
-        T VisitManager(Manager manager);
-        T VisitDeveloper(Developer developer);
+        T Visit(SalesRepresentative salesRepresentative);
+        T Visit(HrGeneralist hrGeneralist);
+        T Visit(Manager manager);
+        T visit(Developer developer);
     }
 
     internal class CalculateHolidays : IEmployeeOperation<int>
     {
-        public int VisitDeveloper(Developer developer)
+        public int visit(Developer developer)
         {
             return AccordingToTheLaw(developer);
         }        
 
-        public int VisitHrGeneralist(HrGeneralist hrGeneralist)
+        public int Visit(HrGeneralist hrGeneralist)
         {
             return AccordingToTheLaw(hrGeneralist);
         }
 
-        public int VisitManager(Manager manager)
+        public int Visit(Manager manager)
         {
             return AccordingToTheLaw(manager);
         }
 
-        public int VisitSalesRepresentative(SalesRepresentative salesRepresentative)
+        public int Visit(SalesRepresentative salesRepresentative)
         {
             return AccordingToTheLaw(salesRepresentative);
         }
@@ -164,22 +164,22 @@
 
     internal class SetBonus : IEmployeeOperation
     {
-        public void VisitDeveloper(Developer developer)
+        public void Visit(Developer developer)
         {
             developer.AnnualBonus = 1000;
         }
 
-        public void VisitHrGeneralist(HrGeneralist hrGeneralist)
+        public void Visit(HrGeneralist hrGeneralist)
         {
             hrGeneralist.AnnualBonus = 250;
         }
 
-        public void VisitManager(Manager manager)
+        public void Visit(Manager manager)
         {
             manager.AnnualBonus = 1500;
         }
 
-        public void VisitSalesRepresentative(SalesRepresentative salesRepresentative)
+        public void Visit(SalesRepresentative salesRepresentative)
         {
             salesRepresentative.AnnualBonus = 2500;
         }

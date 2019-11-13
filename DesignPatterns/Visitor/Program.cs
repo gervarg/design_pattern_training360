@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace Visitor
 {
@@ -11,8 +12,19 @@ namespace Visitor
     {
         static void Main(string[] args)
         {
-            CompanyExampleWithVisitorPattern();
-            //CompanyExampleWithExtensionMethods();
+            //CompanyExampleWithVisitorPattern();
+            CompanyExampleWithExtensionMethods();
+            try
+            {
+                ObservableCollection<int> o = null;
+                o.Clear();
+                o.AddRange(new[] { 1, 2, 3 });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);   
+            }
+            
         }
 
         private static void CompanyExampleWithVisitorPattern()
